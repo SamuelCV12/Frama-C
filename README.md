@@ -49,8 +49,10 @@ To verify the ACSL contract for Exercise 5 using Frama-C, follow these steps:
 ## References
 
 1. **PDF**
-   -  Theory of Computation Assignment 3  (https://drive.google.com/file/d/1Xj7bD8Zs8WuZygjcIqEDOp-uqvo7l9Ed/view)
-   -  frama-c wp tutorial (https://allan-blanchard.fr/publis/frama-c-wp-tutorial-en.pdf)
+   -  Theory of Computation Assignment 3  (https://drive.google.com/file/d/1Xj7bD8Zs8WuZygjcIqEDOp-uqvo7l9Ed/view).
+   -  frama-c wp tutorial (https://allan-blanchard.fr/publis/frama-c-wp-tutorial-en.pdf). 
 2. **AI Tools:**
    - ChatGPT and DeepSeek for code organization, frama-c operation and documentation guidance.
+3. **Books**
+   - Logic and discrete mathematics. A computer science perspective (Winfried K. Grassmann, Tremblay, and Winfried Karl Grassmann 1996).
 
