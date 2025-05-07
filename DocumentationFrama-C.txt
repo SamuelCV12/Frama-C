@@ -1,0 +1,84 @@
+Explanation of the Code in Frama-C
+
+This document provides a step-by-step explanation of the ACSL-annotated C function used in Exercise 5 (Section 9.3), including how it works and behaves under verification.
+
+1. Used Library
+---------------------
+#include <limits.h>
+ - This library provides constants that define the limits of integer data types, such as:
+
+  INT_MIN: the minimum value that a variable of type int can take.
+ 
+  INT_MAX: the maximum value that a variable of type int can take.
+  
+
+2. Step Function
+---------------------
+
+void step(int *i, int *j);
+ - The function "step" takes two integer pointers and modifies the integers they point to.
+ - It increases *i by 2 and *j by 3.
+ 
+
+3. Pointer Validity Preconditions
+--------------------
+requires \valid(i) && \valid(j);
+ - Ensures that both 'i' and 'j' are valid pointers before any dereferencing occurs.
+ - Prevents undefined behavior.
+ 
+
+4. Overflow Protection Preconditions
+-------------------
+requires INT_MIN + 3 <= *j && *j <= INT_MAX - 3;
+ - Ensures that *j can safely be incremented by 3 without overflow or underflow.
+
+requires INT_MIN + 2 <= *i && *i <= INT_MAX - 2;
+ - Ensures that *i can safely be incremented by 2 without overflow or underflow.
+ 
+
+5. Precondition Given in the Exercise
+--------------------
+requires (*i) * (*j) + 2 * (*j) + 3 * (*i) == 0;
+ - This is a specific algebraic condition from Exercise 5.
+ - It ensures that after incrementing *i by 2 and *j by 3, the resulting product will be exactly 6.
+ 
+
+6. Assignment Clause
+--------------------
+assigns *i, *j;
+ - Specifies that only the memory addressed by "i" and "j" will be modified by this function.
+ 
+
+7. Postcondition
+--------------------
+ensures (\old(*i) + 2) * (\old(*j) + 3) == 6;
+ - Ensures that the post state values of *i and *j satisfy the desired result.
+ - \old() refers to the value before the function was executed.
+ 
+
+8. Function Body
+--------------------
+*j = *j + 3;
+ - Modifies the value at pointer j by adding 3.
+
+*i = *i + 2;
+ - Modifies the value at pointer i by adding 2.
+ 
+
+9. Expected Results at the WSL(Windows Subsystem for Linux) terminal
+-------------------
+ [kernel] Parsing Exercise5.c (with preprocessing)
+ [rte:annot] annotating function step
+ [wp] 9 goals scheduled
+ [wp] [Cache] found:4
+ [wp] Proved goals:   11 / 11
+  Terminating:       1
+  Unreachable:       1
+  Qed:               5 (1ms-0.80ms-3ms)
+  Alt-Ergo 2.6.1:    4 (19ms-30ms)
+  
+The output indicates that:
+
+1. The ACSL contract is correct (all targets checked).
+2. There are no runtime errors detected by RTE.
+3. The code is safe, terminates, and complies with the logical specifications.
