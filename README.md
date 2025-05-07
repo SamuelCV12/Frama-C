@@ -54,5 +54,5 @@ To verify the ACSL contract for Exercise 5 using Frama-C, follow these steps:
 2. **AI Tools:**
    - ChatGPT and DeepSeek for code organization, frama-c operation and documentation guidance.
 3. **Books**
-   - Logic and discrete mathematics. A computer science perspective (Winfried K. Grassmann, Tremblay, and Winfried Karl Grassmann 1996).
+   - "Logic and Discrete Mathematics: A Computer Science Perspective" (Winfried K. Grassmann, Tremblay, and Winfried Karl Grassmann 1996).
 
