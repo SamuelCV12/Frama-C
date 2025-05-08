@@ -46,6 +46,10 @@ To verify the ACSL contract for Exercise 5 using Frama-C, follow these steps:
        Alt-Ergo 2.6.1:    4 (19ms-30ms)  
 
 ---
+3. **Explanatory video: https://youtu.be/VDuRU2eAxi0**
+---
+
+
 ## References
 
 1. **PDF**
